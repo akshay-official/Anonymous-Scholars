@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main class="errorMain">
+        <div class="error-container">
+            <!-- <img src="/logo/error.gif" alt="Error Image" class="errorLogo"> -->
+            <h1 class="errorH1">Oops! Something went wrong.</h1>
+            <p class="errorPara">We're sorry, but <%= message%>.</p>
+            <p><a href="#" onclick="goBack()" class="errorAnc">Go Back</a></p>
+        </div>
+    </main>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

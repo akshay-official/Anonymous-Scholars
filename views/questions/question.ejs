@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1 - Answers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Basic reset for margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        /* body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #e9ecef;
+                color: #333;
+                padding: 20px;
+            } */
+
+        /* Header styling */
+
+        /* Main content styling */
+        main {
+            width: 100%;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Question detail styling */
+        .question-detail {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .question-detail p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .question-date {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Answers styling */
+        .answers {
+            margin-bottom: 20px;
+        }
+
+        .answer {
+            background: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .answer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .answer-date {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Comments styling */
+        .comments {
+            margin-top: 10px;
+        }
+
+        .comment {
+            background: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .comment p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            height: 100px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Button styling */
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Additional styles for edit and delete buttons */
+        .edit-answer,
+        .delete-answer,
+        .edit-comment,
+        .delete-comment {
+            margin-top: 10px;
+        }
+
+        .edit-answer,
+        .edit-comment {
+            background-color: #28a745;
+        }
+
+        .edit-answer:hover,
+        .edit-comment:hover {
+            background-color: #218838;
+        }
+
+        .delete-answer,
+        .delete-comment {
+            background-color: #dc3545;
+        }
+
+        .delete-answer:hover,
+        .delete-comment:hover {
+            background-color: #c82333;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .delete-answer {
+            display: inline-block;
+            /* Display as inline-block to appear in a single line */
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #dc3545;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .delete-answer:hover {
+            background-color: #c82333;
+        }
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Adjust gap as needed */
+        }
+
+        .inline-form {
+            display: inline;
+        }
+
+        .edit-answer,
+        .delete-answer {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .edit-answer {
+            background-color: #28a745;
+            /* Edit button color */
+        }
+
+        .delete-answer {
+            background-color: #dc3545;
+            /* Delete button color */
+        }
+
+        .edit-answer:hover {
+            background-color: #218838;
+            /* Hover color for edit button */
+        }
+
+        .delete-answer:hover {
+            background-color: #c82333;
+            /* Hover color for delete button */
+        }
+
+        /* .comment-button {
+                padding: 4px 8px;
+                font-size: 12px;
+                margin-top: 5px;
+                border: none;
+                border-radius: 3px;
+                color: #fff;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            } */
+            .abc{
+                margin-bottom: 10px;
+            }
+            .no-posts {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        .answer {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    /* Add the following lines */
+    width: 100%;
+    /* max-width: 600px;  */
+}
+
+.answer p {
+    word-wrap: break-word;
+}
+
+.answer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+    footer {
+            padding: 1rem 1rem;
+            background-color: #f8f9fa;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+            background-color: white;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+        a {
+            text-decoration: none;
+      color: inherit;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="p-3 mb-3 border-bottom sticky-header">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/" class="nav-link px-2 link-body-emphasis">Home</a></li>
+                    <li><a href="/groups/mygroups" class="nav-link px-2 link-body-emphasis">My Groups</a></li>
+                </ul>
+
+                <form method="POST" action="/search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input name="title" type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+                <% if(currUser){ %>
+                    <div class="dropdown text-end">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
+                                alt="mdo" width="32" height="32" class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="/details">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a href="/logout" class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+
+                    </div>
+                    <% }else{ %>
+                        <div class="col-md-3 d-flex justify-content-end">
+                            <form method="GET" action="/signup" class="me-2">
+                                <button type="submit" class="btn btn-outline-primary">Sign-up</button>
+                            </form>
+                            <form method="GET" action="/login">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+
+                        <% } %>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="question-detail">
+            <h2>Question</h2>
+            <p><strong><a href="/users/<%=question.author._id%>">@<%= question.author.username %>:</a> </strong>
+                <%= question.body%>
+            </p>
+            <% if(currUser && currUser._id.toString() === question.author._id.toString()){ %>
+
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-outline-success btn-sm"
+                onclick="window.location.href='/groups/<%= groupId %>/questions/<%= question._id %>/edit'"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                    Edit
+                </button>
+                <form id="delete-answer-form"
+                    method="POST" action="/groups/<%= groupId %>/questions/<%= question._id %>?_method=DELETE" class="inline-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-outline-danger btn-sm"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        Delete
+                    </button>
+                </form>
+                
+            
+            </div>
+            <% } %>
+            <p class="question-date">
+                <i><%= formatDate(question.date) %></i>
+            </p>
+        </div>
+        <div class="answers">
+            <h2>Answers</h2>
+            <form method="POST" action="/groups/<%= groupId %>/questions/<%= question._id %>/answers" id="add-answer-form">
+                <textarea name="body" id="new-answer" placeholder="Type your answer here..." required></textarea>
+                <button class="abc" type="submit">Add Answer</button>
+            </form>
+            <% if(question.answers.length) { %> 
+            <% for(let i = question.answers.length - 1; i >= 0; i--) { %>
+                <div class="answer">
+                    <p><strong> <a href="/users/<%=question.answers[i].author._id%>">@<%= question.answers[i].author.username %>:</a> </strong>
+                        <%= question.answers[i].body %>
+                    </p>
+
+                    <p class="answer-date">
+                        <i><%= formatDate(question.answers[i].date) %></i>
+                    </p>
+                    <div class="action-buttons">
+                        <!-- <button class="edit-answer" onclick="window.location.href='/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>/edit'">Edit Answer</button> -->
+                        <% if(currUser && currUser._id.toString() === question.answers[i].author._id.toString()){ %>
+                        <form id="delete-answer-form"
+                            action="/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>?_method=DELETE"
+                            method="POST" class="inline-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <!-- <button type="submit" class="delete-answer">Delete Answer</button> -->
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                        </form>
+                        <button class="btn btn-outline-success btn-sm"
+                            onclick="window.location.href='/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>/edit'">Edit</button>
+                            <% } %>
+                        <button id="add-comment-button" class="comment-button btn btn-outline-info btn-sm"
+                            onclick="toggleReplies(<%= i %>)">
+                            <%= question.answers[i].comments.length %> Replies
+                        </button>
+                        <!-- <button type="button" class="btn btn-outline-warning btn-sm"
+                            onclick="window.location.href='/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>/comments/new'">Reply</button> -->
+                            <button id="add-comment-button" class="comment-button btn btn-outline-warning btn-sm"
+                            onclick="toggleReplies(<%= i %>)">
+                            Reply
+                        </button>
+                    </div>
+                    <!-- <button id="toggle-container-button">Toggle Container</button> -->
+
+
+
+                    <div id="container" class="container">
+                        <!-- Content inside the container -->
+
+                        <div class="comments">
+                            <!-- <button id="add-comment-button" class="comment-button" onclick="window.location.href='/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>/comments/new'">Add Comment</button> -->
+                            <div id="commentDiv-<%= i %>" style="display: none;">
+                                <h4>Replies</h4>
+                                <form method="POST" action="/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id%>/comments" id="add-answer-form">
+                                    <textarea name="body" id="new-answer" placeholder="Type your answer here..." required></textarea>
+                                    <button class="abc" type="submit">Add Reply</button>
+                                </form>
+                                <% for(let j = question.answers[i].comments.length - 1; j >= 0; j--) { %>
+                                    <div class="comment">
+                                        <p><strong><a href="/users/<%= question.answers[i].comments[j].author._id %>">@<%= question.answers[i].comments[j].author.username %>:</a> </strong>
+                                            <%= question.answers[i].comments[j].body %>
+                                        </p>
+                                        <p class="question-date">
+                                            <i><%= formatDate(question.answers[i].comments[j].date) %></i>
+                                        </p>
+                                        <!-- <button class="edit-comment">Edit</button>
+                            <button class="delete-comment">Delete</button> -->
+                                        <div class="action-buttons">
+                                            <!-- <button class="edit-answer comment-button" onclick="window.location.href='/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>/comments/<%= question.answers[i].comments[j]._id %>/edit'">Edit Comment</button> -->
+                                            <% if(currUser && currUser._id.toString() === question.answers[i].comments[j].author._id.toString()){ %>
+                                            <button type="submit" class="btn btn-outline-success btn-sm"
+                                                onclick="window.location.href='/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>/comments/<%= question.answers[i].comments[j]._id %>/edit'"
+                                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                Edit
+                                            </button>
+                                            <form id="delete-answer-form"
+                                                action="/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>/comments/<%= question.answers[i].comments[j]._id %>?_method=DELETE"
+                                                method="POST" class="inline-form">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-outline-danger btn-sm"
+                                                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                            <% } %>
+                                        </div>
+
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <!-- <button id="add-comment-button" class="comment-button" onclick="window.location.href='/groups/<%= groupId %>/questions/<%= question._id %>/answers/<%= question.answers[i]._id %>/comments/new'">Add Comment</button> -->
+                        </div>
+                    </div>
+
+
+                </div>
+                <% } %>
+                <% } else { %>
+                <div class="no-posts">No Replies available</div>
+                <% } %>
+        </div>
+        <!-- "/groups/:id/questions/:questionId/answers" -->
+        <!-- <form method="POST" action="/groups/<%= groupId %>/questions/<%= question._id %>/answers" id="add-answer-form">
+            <textarea name="body" id="new-answer" placeholder="Type your answer here..." required></textarea>
+            <button type="submit">Add Answer</button>
+        </form> -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Anonymous Scholars. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        function toggleReplies(index) {
+            var commentDiv = document.getElementById("commentDiv-" + index);
+            if (commentDiv.style.display === "none") {
+                commentDiv.style.display = "block";
+            } else {
+                commentDiv.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

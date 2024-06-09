@@ -1,0 +1,627 @@
+a {
+    text-decoration: none;
+}
+/* group */
+
+   /* Basic reset for margins and padding */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Basic body styling */
+  /* body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #e9ecef;
+    color: #333;
+    padding: 20px;
+  } */
+
+
+  /* Main content styling */
+  /* main {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  } */
+  /* Main content styling */
+main {
+width: 100%; /* Set width to 100% of the parent container */
+margin: 0; /* Remove margins */
+background: #fff;
+padding: 25px;
+border-radius: 8px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+  /* Form styling */
+  form {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+  }
+
+  form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  form button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Question styling */
+  .question {
+    background: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  .question:hover {
+    background-color: #e2e6ea;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* .question a:hover p {
+          text-decoration: underline;
+      } */
+
+  .question p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  /* Question footer styling */
+  .question-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .question-date {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .responses {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  /* Footer styling */
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+/* body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e9ecef;
+        color: #333;
+        padding: 20px;
+    } */
+
+/* Header styling */
+
+/* Main content styling */
+main {
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Question detail styling */
+.question-detail {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.question-detail p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.question-date {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Answers styling */
+.answers {
+    margin-bottom: 20px;
+}
+
+.answer {
+    background: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.answer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.answer-date {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Comments styling */
+.comments {
+    margin-top: 10px;
+}
+
+.comment {
+    background: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.comment p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    height: 100px;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Button styling */
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for edit and delete buttons */
+.edit-answer,
+.delete-answer,
+.edit-comment,
+.delete-comment {
+    margin-top: 10px;
+}
+
+.edit-answer,
+.edit-comment {
+    background-color: #28a745;
+}
+
+.edit-answer:hover,
+.edit-comment:hover {
+    background-color: #218838;
+}
+
+.delete-answer,
+.delete-comment {
+    background-color: #dc3545;
+}
+
+.delete-answer:hover,
+.delete-comment:hover {
+    background-color: #c82333;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+.delete-answer {
+    display: inline-block;
+    /* Display as inline-block to appear in a single line */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-answer:hover {
+    background-color: #c82333;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Adjust gap as needed */
+}
+
+.inline-form {
+    display: inline;
+}
+
+.edit-answer,
+.delete-answer {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-answer {
+    background-color: #28a745;
+    /* Edit button color */
+}
+
+.delete-answer {
+    background-color: #dc3545;
+    /* Delete button color */
+}
+
+.edit-answer:hover {
+    background-color: #218838;
+    /* Hover color for edit button */
+}
+
+.delete-answer:hover {
+    background-color: #c82333;
+    /* Hover color for delete button */
+}
+
+/* .comment-button {
+        padding: 4px 8px;
+        font-size: 12px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    } */
+    .abc{
+        margin-bottom: 10px;
+    }
+
+        /* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+} */
+
+main {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    /* padding-top: 70px; To avoid the form going under the fixed header */
+}
+
+/* header {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} */
+
+/* .logo-container {
+    display: flex;
+    align-items: center;
+} */
+
+/* .header-logo {
+    max-width: 50px;
+    margin-right: 10px;
+} */
+
+/* header h1 {
+    font-size: 24px;
+    font-weight: 500;
+} */
+/* 
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #cce7ff;
+} */
+
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+    margin-top: 20px; /* Space between header and form */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* .logo {
+    max-width: 100px;
+    margin-bottom: 20px;
+} */
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 300;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #004494;
+    transform: translateY(0);
+}
+
+/* footer {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+} */
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    input, button {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    /* header h1 {
+        font-size: 20px;
+    } */
+
+    /* nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    } */
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+}
+
+.user-container {
+    max-width: 800px;
+    margin: 1px auto;
+    padding: 1px;
+}
+
+.user-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* .user-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+} */
+
+.user-card h3 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.user-card p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.user-card .card-footer {
+    background-color: transparent;
+    border-top: none;
+    padding-top: 10px;
+    font-size: 1rem;
+    color: #666;
+    text-align: right;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text span {
+    font-weight: normal;
+    color: #555;
+}
+
+.user-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

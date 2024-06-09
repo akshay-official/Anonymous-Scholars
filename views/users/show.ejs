@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px;
+        }
+
+        .user-container {
+            max-width: 800px;
+            margin: 1px auto;
+            padding: 1px;
+        }
+
+        .user-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* .user-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+        } */
+
+        .user-card h3 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .user-card p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .user-card .card-footer {
+            background-color: transparent;
+            border-top: none;
+            padding-top: 10px;
+            font-size: 1rem;
+            color: #666;
+            text-align: right;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        .card-text span {
+            font-weight: normal;
+            color: #555;
+        }
+
+        .user-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .user-photo2 {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        /* Button styles */
+    </style>
+</head>
+
+<body>
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/" class="nav-link px-2 link-body-emphasis">Home</a></li>
+                    <li><a href="/groups/mygroups" class="nav-link px-2 link-body-emphasis">My Groups</a></li>
+                    <!-- <li><a href="#" class="nav-link px-2 link-body-emphasis">Notifications</a></li> -->
+                </ul>
+
+                <form method="POST" action="/search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input name="title" type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+                <% if(currUser){ %>
+                    <div class="dropdown text-end">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" alt="mdo" width="32" height="32"
+                                class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="/details">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a href="/logout" class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+
+                    </div>
+                    <% }else{ %>
+                        <div class="col-md-3 d-flex justify-content-end">
+                            <form method="GET" action="/signup" class="me-2">
+                                <button type="submit" class="btn btn-outline-primary">Sign-up</button>
+                            </form>
+                            <form method="GET" action="/login">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+
+                        <% } %>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="user-container">
+            <div class="user-card card">
+                <div class="card-body text-center">
+                    <!-- <img src="https://via.placeholder.com/150" alt="User Photo" class="user-photo" id="user-photo"> -->
+                    <!-- <i class="bi bi-person-circle"></i> -->
+                    <svg class="user-photo" id="user-photo" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg>
+                    <h3 class="card-title" id="user-name">
+                        <%= user.username %>
+                    </h3>
+                    <!-- <p class="card-text"><strong>Username:</strong> <span id="user-email">
+                            <%= user.username %>
+                        </span></p> -->
+                    <p class="card-text"><strong>Email:</strong> <span id="user-email">
+                            <%= user.email %>
+                        </span></p>
+                    <p class="card-text"><strong>College:</strong> <span id="user-college">
+                            <%= user.college %>
+                        </span></p>
+                    <p class="card-text"><strong>Course:</strong> <span id="user-course">
+                            <%= user.course %>
+                        </span></p>
+                    <p class="card-text"><strong>Batch:</strong> <span id="user-batch">
+                            <%= user.batch %>
+                        </span></p>
+                    <div class="center-container">
+                        <button type="submit" class="btn btn-outline-success btn-sm"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                            Edit
+                        </button>
+                        <form action="/logout" id="delete-answer-form" method="GET" class="inline-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-outline-danger btn-sm"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Example user data
+        // const user = {
+        //     photo: 'https://via.placeholder.com/150',
+        //     name: 'John Doe',
+        //     email: 'john.doe@example.com',
+        //     college: 'Example University',
+        //     course: 'Computer Science',
+        //     batch: 2024,
+        //     updated: 'January 1, 2024'
+        // };
+
+        // Function to render user details
+        function renderUserDetails(user) {
+            document.getElementById('user-photo').src = user.photo;
+            document.getElementById('user-name').textContent = user.name;
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-college').textContent = user.college;
+            document.getElementById('user-course').textContent = user.course;
+            document.getElementById('user-batch').textContent = user.batch;
+            document.getElementById('last-updated').textContent = `Last updated: ${user.updated}`;
+        }
+
+        // Render the user details on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderUserDetails(user);
+        });
+    </script>
+</body>
+
+</html>
