@@ -143,13 +143,20 @@ function formatDate(date) {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
 }
+
+function truncateText(text, length) {
+    if (text.length <= length) {
+        return text;
+    }
+    return text.substring(0, length) + '...';
+}
 app.get("/", (req, res) => {
     res.redirect("/groups");
 })
 app.post("/search", async (req, res) => {
     // console.log(req.body);
     const groups = await Group.find({ title: { "$regex": req.body.title, "$options": "i" } }).populate("owner");
-    res.render("./groups/groups.ejs", { groups, isJoined2 });
+    res.render("./groups/groups.ejs", { groups, isJoined2, truncateText });
 })
 app.get("/test", (req, res) => {
     // const users = 
@@ -194,7 +201,7 @@ app.post("/signup", wrapAsync(async (req, res) => {
 }));
 app.get("/login", (req, res) => {
     // res.send('ok')
-    res.render("users/login.ejs");
+    res.render("users/login.ejs", { error: null });
 });
 app.post("/login", saveRedirectUrl,
     passport.authenticate("local", { failureRedirect: "/login" }),
@@ -213,6 +220,16 @@ app.get("/logout", (req, res) => {
     });
 })
 
+// app.get("/users/edit", (req, res) => {
+//     let user = new User({
+//         // name: req.body.name,
+//         email: req.body.email,
+//         username: req.body.username,
+//         college: req.body.college,
+//         course: req.body.course,
+//         batch: req.body.batch
+//     });
+// })
 
 
 
@@ -242,12 +259,12 @@ app.get("/groups/mygroups", isLoggedIn, wrapAsync(async (req, res) => {
     // updateUser.groups.push(req.params.id);
     // await updateUser.save();
     // res.render(groups);
-    res.render("./groups/groups.ejs", { groups, isJoined2 });
+    res.render("./groups/groups.ejs", { groups, isJoined2, truncateText });
 }));
 app.get("/groups", wrapAsync(async (req, res) => {
     const groups = await Group.find({}).populate("owner");
     // console.log(groups);
-    res.render("./groups/groups.ejs", { groups, isJoined2 });
+    res.render("./groups/groups.ejs", { groups, isJoined2, truncateText });
 }));
 app.get("/groups/new", isLoggedIn, (req, res) => {
     // res.send("ok")

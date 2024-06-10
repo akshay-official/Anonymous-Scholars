@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
             margin: 0;
             padding: 0;
         }
+
         .container2 {
             max-width: 600px;
             margin: 50px auto;
@@ -21,21 +23,27 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         .form-group label {
             font-weight: bold;
         }
-        .form-group input, .form-group textarea {
+
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
         .form-group textarea {
             resize: vertical;
         }
+
         .form-group button {
             background-color: #007bff;
             color: #fff;
@@ -44,11 +52,17 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         .form-group button:hover {
             background-color: #0056b3;
         }
-        
-footer {
+
+        .form-text {
+            color: #6c757d;
+            font-size: 0.875em;
+        }
+
+        footer {
             text-align: center;
             margin-top: 30px;
             color: #666;
@@ -68,7 +82,7 @@ footer {
             /* To ensure the image covers the entire area */
         }
 
-footer {
+        footer {
             padding: 1rem 1rem;
             background-color: #f8f9fa;
             position: sticky;
@@ -92,9 +106,9 @@ footer {
         main {
             flex: 1;
         }
-
     </style>
 </head>
+
 <body>
     <header class="p-3 mb-3 border-bottom sticky-header">
         <div class="container">
@@ -144,33 +158,53 @@ footer {
         </div>
     </header>
     <main>
-    <div class="container2" >
-        <h2>Group Information Form</h2>
-        <form action="/groups/<%= group._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" value="<%= group.title %>" required>
-            </div>
-            <div class="form-group">
-                <label for="image">Upload Image:</label>
-                <input type="file" id="image" name="image" >
-            </div>
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="4" required><%= group.description %></textarea>
-            </div>
-   
-            <div class="form-group">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </div>
-</main>
-<footer>
-    <p>&copy; 2024 Anonymous Scholars. All rights reserved.</p>
-</footer>
+        <div class="container2">
+            <h2>Group Information Form</h2>
+            <form action="/groups/<%= group._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" value="<%= group.title %>" required maxlength="100" oninput="updateTitleCount()">
+                    <small class="form-text">Max 100 characters. <span id="title-count">0</span>/100</small>
+                </div>
+                <div class="form-group">
+                    <label for="image">Upload Image:</label>
+                    <input type="file" id="image" name="image">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" required maxlength="500" oninput="updateDescriptionCount()"><%= group.description %></textarea>
+                    <small class="form-text">Max 500 characters. <span id="description-count">0</span>/500</small>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Anonymous Scholars. All rights reserved.</p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            updateTitleCount();
+            updateDescriptionCount();
+        });
+
+        function updateTitleCount() {
+            const titleInput = document.getElementById('title');
+            const titleCount = document.getElementById('title-count');
+            titleCount.textContent = titleInput.value.length;
+        }
+
+        function updateDescriptionCount() {
+            const descriptionInput = document.getElementById('description');
+            const descriptionCount = document.getElementById('description-count');
+            descriptionCount.textContent = descriptionInput.value.length;
+        }
+    </script>
 </body>
+
 </html>

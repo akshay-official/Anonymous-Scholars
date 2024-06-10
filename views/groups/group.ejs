@@ -196,6 +196,29 @@ footer {
         main {
             flex: 1;
         }
+
+.text-body-emphasis {
+    word-wrap: break-word; /* Ensure long words wrap */
+    overflow-wrap: break-word; /* Handle overflow */
+}
+
+.lead {
+    word-wrap: break-word; /* Ensure long words wrap */
+    overflow-wrap: break-word; /* Handle overflow */
+}
+
+.bg-body-tertiary {
+    padding: 2rem; /* Ensure there is enough padding inside the container */
+}
+
+.btn-group {
+    margin-top: 20px;
+}
+
+.btn-outline-secondary {
+    margin-right: 10px;
+}
+
   </style>
 </head>
 
@@ -248,34 +271,32 @@ footer {
     </div>
 </header>
   <main>
-    <div class="p-5 text-center bg-body-tertiary rounded-3">
-      <h1 class="text-body-emphasis">
-        <%= group.title%>
-      </h1>
-      <p class="lead">
-        <%= group.description%>
-      </p>
-      <p><strong>
-        Admin: 
-      </strong>@<%= group.owner.username %>
-    </p>
-      <div class="btn-group">
-        <% if(!currUser || !isJoined2(currUser.groups, group._id)) { %>
-        <form action="/groups/<%= group._id %>/join" method="GET" class="me-2">
-          <button class="btn btn-sm btn-outline-secondary">Join</button>
-        </form>
-        <% } %>
-        <% if(currUser && currUser._id.toString()===group.owner._id.toString()){ %>
-          <form action="/groups/<%= group.id%>/edit" method="GET" class="me-2">
-            <button class="btn btn-sm btn-outline-secondary">Edit</button>
-          </form>
-          <form action="/groups/<%= group.id%>?_method=DELETE" method="POST" class="me-2">
-            <button class="btn btn-sm btn-outline-secondary">Delete</button>
-          </form>
-          <% } %>
+      <div class="p-5 text-center bg-body-tertiary rounded-3">
+          <h1 class="text-body-emphasis">
+              <%= group.title %>
+          </h1>
+          <p class="lead">
+              <%= group.description %>
+          </p>
+          <p><strong>Admin:</strong> @<%= group.owner.username %></p>
+          <div class="btn-group">
+              <% if(!currUser || !isJoined2(currUser.groups, group._id)) { %>
+                  <form action="/groups/<%= group._id %>/join" method="GET" class="me-2">
+                      <button class="btn btn-sm btn-outline-secondary">Join</button>
+                  </form>
+              <% } %>
+              <% if(currUser && currUser._id.toString() === group.owner._id.toString()){ %>
+                  <form action="/groups/<%= group._id %>/edit" method="GET" class="me-2">
+                      <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </form>
+                  <form action="/groups/<%= group._id %>?_method=DELETE" method="POST" class="me-2">
+                      <button class="btn btn-sm btn-outline-secondary">Delete</button>
+                  </form>
+              <% } %>
+          </div>
       </div>
-      
-    </div>
+
+  
     <form method="POST" action="/groups/<%= group.id%>/questions" id="add-question-form">
       <input name="body" type="text" id="new-question" placeholder="Type your question here..." required>
       <button type="submit">Add Question</button>
